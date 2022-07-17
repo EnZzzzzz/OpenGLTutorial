@@ -3,7 +3,7 @@
 
 
 IndexBuffer::IndexBuffer(const void* data, unsigned int count)
-	: m_Count(count)
+	: m_Count(count)//赋值给成员变量
 {
 	ASSERT(sizeof(unsigned int) == sizeof(GLuint));
 

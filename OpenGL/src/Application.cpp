@@ -6,6 +6,16 @@
 #include <string>
 #include <sstream>
 
+#include "Renderer.h"
+#include "VertexBuffer.h"
+#include "IndexBuffer.h"
+
+//#define ASSERT(x) if (!(x)) __debugbreak(); //#设置一个宏，如果出错就会打一个断点
+//#define GLCall(x) GLClearError();\
+//	x;\
+//	ASSERT(GLLogCall(#x, __FILE__, __LINE__))
+
+
 struct ShaderProgramSource
 {
 	std::string VertexSource;
@@ -116,57 +126,91 @@ int main(void)
 
 	// 第一步，创建OpenGL渲染上下文
 	glfwMakeContextCurrent(window);
+	glfwSwapInterval(1); // 与显示器的刷新率保持一致（垂直同步）
 	
 	// 第二步，调用glewInit
 	if (glewInit() != GLEW_OK)
 		std::cout << "Error" << std::endl;
 	std::cout << glGetString(GL_VERSION) << std::endl;
 
-	float positions[6] = {
+	float positions[] = {
 		-0.5f, -0.5f,
-		 0.0f,  0.5f,
 		 0.5f, -0.5f,
+		 0.5f,  0.5f,
+		-0.5f,  0.5f
 	};
 
-	unsigned int buffer;
-	//创建一个vertexBuffer，
-	//第一个参数是创建的buffer的数量，
-	//第二参数是buffer的id,类型是GLUINT类型的（每个OpenGL对象都有一个id）
-	glGenBuffers(1, &buffer);
-	// 创建完buffer，需要绑定buffer，这里以array 类型的buffer绑定
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-	// 绑定buffer，使用之前需要给指定buffer的数据  https://docs.gl/gl4/glBufferData
-	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+	unsigned int indices[] = {
+		0, 1, 2,
+		2, 3, 0
+	};
+
+	unsigned int vao;
+	GLCall(glGenVertexArrays(1, &vao));
+	GLCall(glBindVertexArray(vao));
+
+
+	VertexBuffer vb(positions, 4 * 2 * sizeof(float)); //这里positions是一个数组，但是以const void* 的形式传入了？？
+	
 	// 告诉OpenGL data里的数据代表什么 https://docs.gl/gl4/glVertexAttribPointer
 	// 第一个index是属性的index，比如定义 位置在index0，纹理在index2，法线在index3
 	// size是该属性有几个数值，比如index 0定义为坐标，坐标有两个float，所以size是2
 	// 用之前要enable这个属性
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0);
-	
+	GLCall(glEnableVertexAttribArray(0));
+	GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0));
+
+	IndexBuffer ib(indices, 6);	
 
 	// 创建shader
 	std::string vertexShader;
 	std::string fragmentShader;
 
 	ShaderProgramSource source = ParseShader("res/shaders/Basic.shader");
-	std::cout << "VERTEX" << std::endl;
+	/*std::cout << "VERTEX" << std::endl;
 	std::cout << source.VertexSource << std::endl;
 	std::cout << "FRAGMENT" << std::endl;
-	std::cout << source.FragmentSource << std::endl;
+	std::cout << source.FragmentSource << std::endl;*/
 
 	unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
 	glUseProgram(shader);
+
+	GLCall(int location = glGetUniformLocation(shader, "u_Color"));
+	ASSERT(location != -1); //shader编译器在编译的时候会去掉没有用到的变量，所以要做一个变量检测
+
+	GLCall(glBindVertexArray(0));
+	GLCall(glUseProgram(0));
+	GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
+	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0));
+
+	float r = 0.0f;
+	float increment = 0.05f;
 
 	while (!glfwWindowShouldClose(window))
 	{
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		GLCall(glUseProgram(shader));
+		GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
+
+		GLCall(glBindVertexArray(vao));
+		ib.Bind();
+
+		//glDrawArrays(GL_TRIANGLES, 0, 6);
+		GLCall(glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr));
+
+		if (r > 1.0f)
+		{
+			increment = -0.05f;
+		}
+		else if (r < 0.0f)
+		{
+			increment = 0.05f;
+		}
+		r += increment;
 
 		/* Swap front and back buffers */
-		glfwSwapBuffers(window);
+		GLCall(glfwSwapBuffers(window));
 
 		/* Poll for and process events */
 		glfwPollEvents();
