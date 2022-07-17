@@ -9,6 +9,7 @@
 #include "Renderer.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
+#include "VertexArray.h"
 
 //#define ASSERT(x) if (!(x)) __debugbreak(); //#设置一个宏，如果出错就会打一个断点
 //#define GLCall(x) GLClearError();\
@@ -149,16 +150,12 @@ int main(void)
 	GLCall(glGenVertexArrays(1, &vao));
 	GLCall(glBindVertexArray(vao));
 
-
+	VertexArray va;
 	VertexBuffer vb(positions, 4 * 2 * sizeof(float)); //这里positions是一个数组，但是以const void* 的形式传入了？？
+	VertexBufferLayout layout;
+	layout.push<float>(2);
+	va.AddBuffer(vb, layout);
 	
-	// 告诉OpenGL data里的数据代表什么 https://docs.gl/gl4/glVertexAttribPointer
-	// 第一个index是属性的index，比如定义 位置在index0，纹理在index2，法线在index3
-	// size是该属性有几个数值，比如index 0定义为坐标，坐标有两个float，所以size是2
-	// 用之前要enable这个属性
-	GLCall(glEnableVertexAttribArray(0));
-	GLCall(glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(float), 0));
-
 	IndexBuffer ib(indices, 6);	
 
 	// 创建shader
@@ -193,7 +190,7 @@ int main(void)
 		GLCall(glUseProgram(shader));
 		GLCall(glUniform4f(location, r, 0.3f, 0.8f, 1.0f));
 
-		GLCall(glBindVertexArray(vao));
+		va.Bind();
 		ib.Bind();
 
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
