@@ -10,9 +10,9 @@
 #include "imgui/imgui_impl_glfw.h"
 #include "imgui/imgui_impl_opengl3.h"
 
-#include "tests/TestClearColor.h"
-#include "tests/TestTexture2D.h"
-#include "tests/TestBatchRender.h"
+#include "tasks/TestClearColor.h"
+#include "tasks/TestTexture2D.h"
+#include "tasks/TestBatchRender.h"
 
 int main(void)
 {
@@ -59,8 +59,8 @@ int main(void)
         const char* glsl_version = "#version 330";
         ImGui_ImplOpenGL3_Init(glsl_version);
 
-        task::Test* currentTest = nullptr;
-        task::TestMenu* testMenu = new task::TestMenu(currentTest);
+        task::Task* currentTest = nullptr;
+        task::TaskMenu* testMenu = new task::TaskMenu(currentTest);
         currentTest = testMenu;
 
         testMenu->RegisterTest<task::TestClearColor>("Clear Color");

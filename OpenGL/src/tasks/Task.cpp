@@ -1,15 +1,15 @@
-#include "Test.h"
+#include "Task.h"
 
 #include "imgui/imgui.h"
 
 namespace task
 {
-	TestMenu::TestMenu(Test*& currentTestPtr)
+	TaskMenu::TaskMenu(Task*& currentTestPtr)
 		:m_CurrentTest(currentTestPtr)
 	{
 	}
 
-	void TestMenu::OnImGuiRender()
+	void TaskMenu::OnImGuiRender()
 	{
 		for (auto& test : m_Tests) {
 			if (ImGui::Button(test.first.c_str())) {

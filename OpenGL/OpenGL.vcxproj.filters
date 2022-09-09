@@ -448,16 +448,16 @@
     <ClCompile Include="src\glElement\Texture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\tests\Test.cpp">
+    <ClCompile Include="src\tasks\Task.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\tests\TestBatchRender.cpp">
+    <ClCompile Include="src\tasks\TestBatchRender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\tests\TestClearColor.cpp">
+    <ClCompile Include="src\tasks\TestClearColor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\tests\TestTexture2D.cpp">
+    <ClCompile Include="src\tasks\TestTexture2D.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\vendor\glm\detail\glm.cpp">
@@ -510,16 +510,16 @@
     <ClInclude Include="src\glElement\Shader.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\tests\TestTexture2D.h">
+    <ClInclude Include="src\tasks\TestTexture2D.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\tests\Test.h">
+    <ClInclude Include="src\tasks\Task.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\tests\TestBatchRender.h">
+    <ClInclude Include="src\tasks\TestBatchRender.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="src\tests\TestClearColor.h">
+    <ClInclude Include="src\tasks\TestClearColor.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\vendor\glm\detail\_features.hpp">

@@ -1,12 +1,10 @@
 #pragma once
 
-#include "Test.h"
+#include "Task.h"
 
 namespace task
 {
-
-	/* �����ɫ: ָ������ָ����ɫ��䱳��ɫ ˢ�� */
-	class TestClearColor : public Test
+	class TestClearColor : public Task
 	{
 	private:
 		float m_ClearColor[4];

@@ -6,24 +6,24 @@
 
 namespace task
 {
-	class Test
+	class Task
 	{
 	public:
-		Test() {}
-		virtual ~Test() {}
+		Task() {}
+		virtual ~Task() {}
 
 		virtual void OnUpdate(float deltaTime) {}
 		virtual void OnRender() {}
 		virtual void OnImGuiRender() {}
 	};
 
-	class TestMenu: public Test
+	class TaskMenu: public Task
 	{
 	private:
-		Test*& m_CurrentTest;
-		std::vector<std::pair<std::string, std::function<Test*()>>> m_Tests;
+		Task*& m_CurrentTest;
+		std::vector<std::pair<std::string, std::function<Task*()>>> m_Tests;
 	public:
-		TestMenu(Test*& currentTestPtr);
+		TaskMenu(Task*& currentTestPtr);
 
 		void OnImGuiRender() override;
 
