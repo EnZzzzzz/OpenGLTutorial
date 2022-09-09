@@ -4,7 +4,7 @@
 #include <functional>
 #include <iostream>
 
-namespace test
+namespace task
 {
 	class Test
 	{

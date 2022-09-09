@@ -59,13 +59,13 @@ int main(void)
         const char* glsl_version = "#version 330";
         ImGui_ImplOpenGL3_Init(glsl_version);
 
-        test::Test* currentTest = nullptr;
-        test::TestMenu* testMenu = new test::TestMenu(currentTest);
+        task::Test* currentTest = nullptr;
+        task::TestMenu* testMenu = new task::TestMenu(currentTest);
         currentTest = testMenu;
 
-        testMenu->RegisterTest<test::TestClearColor>("Clear Color");
-        testMenu->RegisterTest<test::TestTexture2D>("2D Texture");
-        testMenu->RegisterTest<test::TestBatchRender>("Batch Render");
+        testMenu->RegisterTest<task::TestClearColor>("Clear Color");
+        testMenu->RegisterTest<task::TestTexture2D>("2D Texture");
+        testMenu->RegisterTest<task::TestBatchRender>("Batch Render");
 
         while (!glfwWindowShouldClose(window)) {
             GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));

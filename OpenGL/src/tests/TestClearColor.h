@@ -2,10 +2,10 @@
 
 #include "Test.h"
 
-namespace test
+namespace task
 {
 
-	/* Çå³ýÑÕÉ«: Ö¸µÄÊÇÓÃÖ¸¶¨ÑÕÉ«Ìî³ä±³¾°É« Ë¢ÆÁ */
+	/* ï¿½ï¿½ï¿½ï¿½ï¿½É«: Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ä±³ï¿½ï¿½É« Ë¢ï¿½ï¿½ */
 	class TestClearColor : public Test
 	{
 	private:

@@ -6,7 +6,7 @@
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 
-namespace test
+namespace task
 {
 	TestBatchRender::TestBatchRender()
         :m_Proj(glm::ortho(0.0f, 640.0f, 0.0f, 480.0f, -1.0f, 1.0f)),
@@ -38,10 +38,10 @@ namespace test
 
         m_VertexBuffer = std::make_unique<VertexBuffer>(positions, 11 * 8 * sizeof(float));
         VertexBufferLayout layout;
-        layout.Push<float>(4); // ×ø±ê x, y, z, w  w Æë´Î×ø±ê, ¶Ôxyz½øÐÐËõ·Å
-        layout.Push<float>(4); // ÑÕÉ«Êý¾Ý
-        layout.Push<float>(2); // ÎÆÀí×ø±ê
-        layout.Push<float>(1); // ÎÆÀí²å²Û
+        layout.Push<float>(4); // ï¿½ï¿½ï¿½ï¿½ x, y, z, w  w ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½xyzï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        layout.Push<float>(4); // ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
+        layout.Push<float>(2); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        layout.Push<float>(1); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         m_VAO->AddBuffer(*m_VertexBuffer, layout);
 
         m_IndexBuffer = std::make_unique<IndexBuffer>(indices, 12);
@@ -72,7 +72,7 @@ namespace test
 		GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
 		GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
-        Renderer renderer; // Ã¿Ö¡Õâ¸örenderer¶¼Òª²»Ò»ÑùÂï
+        Renderer renderer; // Ã¿Ö¡ï¿½ï¿½ï¿½rendererï¿½ï¿½Òªï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
         glm::mat4 mvp = m_Proj * m_View;
 
         m_Shader->Bind();

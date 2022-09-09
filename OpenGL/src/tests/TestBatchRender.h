@@ -8,7 +8,7 @@
 
 #include <memory>
 
-namespace test
+namespace task
 {
 
 	class TestBatchRender : public Test

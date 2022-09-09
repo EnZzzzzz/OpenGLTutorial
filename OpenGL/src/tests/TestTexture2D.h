@@ -8,7 +8,7 @@
 
 #include <memory>
 
-namespace test
+namespace task
 {
 
 	/* �����ɫ: ָ������ָ����ɫ��䱳��ɫ ˢ�� */
