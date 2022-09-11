@@ -487,6 +487,9 @@
     <ClCompile Include="src\vendor\stb_image\stb_image.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\export\Window.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\glElement\Renderer.h">
@@ -1396,6 +1399,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\vendor\stb_image\stb_image.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\export\Window.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

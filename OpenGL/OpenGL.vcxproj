@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\export\Window.cpp" />
     <ClCompile Include="src\glElement\IndexBuffer.cpp" />
     <ClCompile Include="src\glElement\Renderer.cpp" />
     <ClCompile Include="src\glElement\Shader.cpp" />
@@ -310,6 +311,7 @@
     <None Include="src\vendor\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\export\Window.h" />
     <ClInclude Include="src\glElement\IndexBuffer.h" />
     <ClInclude Include="src\glElement\Renderer.h" />
     <ClInclude Include="src\glElement\Shader.h" />

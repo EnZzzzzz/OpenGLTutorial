@@ -1,114 +1,24 @@
-#include "GL/glew.h"
-#include "GLFW/glfw3.h"
-
-#include "Renderer.h"
-
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-
-#include "imgui/imgui.h"
-#include "imgui/imgui_impl_glfw.h"
-#include "imgui/imgui_impl_opengl3.h"
-
 #include "tasks/TestClearColor.h"
 #include "tasks/TestTexture2D.h"
 #include "tasks/TestBatchRender.h"
+#include "export/Window.h"
 
 int main(void)
 {
-    GLFWwindow* window;
-
-    /* Initialize the library */
-    if (!glfwInit()) return -1;
-
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-    /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
-    if (!window) {
-        glfwTerminate();
-        return -1;
-    }
-
-    /* Make the window's context current */
-    glfwMakeContextCurrent(window);
-    glfwSwapInterval(1);
-
-    GLenum err = glewInit();
-    if (GLEW_OK != err) {
-        std::cout << "Error: " << glewGetErrorString(err) << std::endl;
-    }
-    std::cout << "Status: Using GLEW " << glewGetString(GLEW_VERSION) << std::endl;
     
-    unsigned char* glVersion;
-    GLCall(glVersion = (unsigned char*)glGetString(GL_VERSION));
-    std::cout << "Status: Using GL " << glVersion << std::endl;
+    Window window = Window(640, 480, "Hello World");
+    std::cout << "window created" << std::endl;
 
-    {
-        GLCall(glEnable(GL_BLEND));
-        GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
+    task::Task* currentTest = nullptr;
+    task::TaskMenu testMenu = task::TaskMenu();
+    currentTest = &testMenu;
 
-        Renderer renderer;
+    testMenu.RegisterTest<task::TestClearColor>("Clear Color");
+    testMenu.RegisterTest<task::TestTexture2D>("2D Texture");
+    testMenu.RegisterTest<task::TestBatchRender>("Batch Render");
 
-        ImGui::CreateContext();
-        ImGui_ImplGlfw_InitForOpenGL(window, true);
-        ImGui::StyleColorsDark();
+    std::cout << "start showing menu" << std::endl;
+    window.show(currentTest);
 
-        const char* glsl_version = "#version 330";
-        ImGui_ImplOpenGL3_Init(glsl_version);
-
-        task::Task* currentTest = nullptr;
-        task::TaskMenu* testMenu = new task::TaskMenu(currentTest);
-        currentTest = testMenu;
-
-        testMenu->RegisterTest<task::TestClearColor>("Clear Color");
-        testMenu->RegisterTest<task::TestTexture2D>("2D Texture");
-        testMenu->RegisterTest<task::TestBatchRender>("Batch Render");
-
-        while (!glfwWindowShouldClose(window)) {
-            GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
-            renderer.Clear();
-
-            ImGui_ImplOpenGL3_NewFrame();
-            ImGui_ImplGlfw_NewFrame();
-            ImGui::NewFrame();
-
-            if (currentTest)
-            {
-                currentTest->OnUpdate(0.0f);
-                currentTest->OnRender();
-                ImGui::Begin("Test");
-                if (currentTest != testMenu && ImGui::Button("<-"))
-                {
-                    delete currentTest;
-                    currentTest = testMenu;
-                }
-                currentTest->OnImGuiRender();
-                ImGui::End();
-            }
-
-            ImGui::Render();
-            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
-            glfwSwapBuffers(window);
-            glfwPollEvents();
-        }
-
-        delete currentTest;
-        if (currentTest != testMenu)
-        {
-            delete testMenu;
-        }
-    }
-
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
-
-    glfwDestroyWindow(window);
-
-    glfwTerminate();
     return 0;
 }

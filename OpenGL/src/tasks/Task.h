@@ -20,12 +20,15 @@ namespace task
 	class TaskMenu: public Task
 	{
 	private:
-		Task*& m_CurrentTest;
+		Task* m_CurrentTest;
 		std::vector<std::pair<std::string, std::function<Task*()>>> m_Tests;
+		void showMenu();
+
 	public:
-		TaskMenu(Task*& currentTestPtr);
+		TaskMenu();
 
 		void OnImGuiRender() override;
+		void OnRender() override;
 
 		template<typename T>
 		void RegisterTest(const std::string& name)
