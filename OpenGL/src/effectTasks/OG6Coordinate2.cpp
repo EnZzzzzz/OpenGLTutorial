@@ -87,7 +87,7 @@ void OG6Coordinate2::OnRender()
 
     m_Shader->SetUniformMat4f("u_MVP", m_Proj * m_View * m_Model);
     m_Renderer->Draw(*m_VAO, *m_IBO, *m_Shader);*/
-    std::cout << m_VBO->GetCount(5 * sizeof(float)) << std::endl;
+    std::cout << m_VBO->GetCount() << std::endl;
 }
 
 void OG6Coordinate2::OnImGuiRender()

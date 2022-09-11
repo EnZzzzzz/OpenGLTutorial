@@ -26,7 +26,7 @@ void VertexBuffer::Unbind() const
     GLCall(glBindBuffer(GL_ARRAY_BUFFER, 0));
 }
 
-int VertexBuffer::GetCount(int sizeOfVertex)
+int VertexBuffer::GetCount()
 {
-    return (int)m_Size / sizeOfVertex;
+    return (int)m_Size / layout.GetStride();
 }
