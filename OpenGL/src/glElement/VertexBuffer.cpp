@@ -3,6 +3,7 @@
 #include "Renderer.h"
 
 VertexBuffer::VertexBuffer(const void* data, unsigned int size)
+    :layout(VertexBufferLayout())
 {
     m_Size = (int)size;
     GLCall(glGenBuffers(1, &m_RendererID));

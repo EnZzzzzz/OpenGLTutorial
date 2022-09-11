@@ -27,10 +27,10 @@ OG6Coordinate::OG6Coordinate()
     m_IBO->Bind();
 
     VertexBufferLayout layout = VertexBufferLayout();
-    layout.Push<float>(3);
-    layout.Push<float>(3);
-    layout.Push<float>(2);
-    m_VAO->AddBuffer(*m_VBO, layout);
+    m_VBO->layout.Push<float>(3);
+    m_VBO->layout.Push<float>(3);
+    m_VBO->layout.Push<float>(2);
+    m_VAO->AddBuffer(*m_VBO);
 
     m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
     unsigned int slot = 0;

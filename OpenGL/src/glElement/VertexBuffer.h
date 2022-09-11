@@ -1,5 +1,7 @@
 #pragma once
 
+#include "VertexBufferLayout.h"
+
 class VertexBuffer
 {
 private:
@@ -13,4 +15,5 @@ public:
 	void Bind() const;
 	void Unbind() const;
 	int GetCount(int sizeOfVertex);
+	VertexBufferLayout layout;
 };

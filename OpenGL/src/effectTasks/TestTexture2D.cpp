@@ -30,10 +30,10 @@ TestTexture2D::TestTexture2D()
     m_VAO = std::make_unique<VertexArray>();
 
     m_VertexBuffer = std::make_unique<VertexBuffer>(positions, 4 * 4 * sizeof(float));
-    VertexBufferLayout layout;
-    layout.Push<float>(2);
-    layout.Push<float>(2);
-    m_VAO->AddBuffer(*m_VertexBuffer, layout);
+ 
+    m_VertexBuffer->layout.Push<float>(2);
+    m_VertexBuffer->layout.Push<float>(2);
+    m_VAO->AddBuffer(*m_VertexBuffer);
 
     m_IndexBuffer = std::make_unique<IndexBuffer>(indices, 6);
 

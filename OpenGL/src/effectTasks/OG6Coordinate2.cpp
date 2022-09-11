@@ -57,10 +57,9 @@ OG6Coordinate2::OG6Coordinate2()
     m_VBO = std::make_unique<VertexBuffer>(vertices, sizeof(vertices));
     m_VBO->Bind();
     
-    VertexBufferLayout layout;
-    layout.Push<float>(3);
-    layout.Push<float>(2);
-    m_VAO->AddBuffer(*m_VBO, layout);
+    m_VBO->layout.Push<float>(3);
+    m_VBO->layout.Push<float>(2);
+    m_VAO->AddBuffer(*m_VBO);
 
     m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
     unsigned int slot = 0;
