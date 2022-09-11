@@ -65,11 +65,9 @@ OG6Coordinate2::OG6Coordinate2()
     unsigned int slot = 0;
     m_Texture->Bind(slot);
 
-    m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate.shader");
+    m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate2.shader");
     m_Shader->Bind();
     m_Shader->SetUniform1i("ourTexture", (int)slot);
-    
-    
 }
 
 OG6Coordinate2::~OG6Coordinate2()
@@ -79,23 +77,22 @@ OG6Coordinate2::~OG6Coordinate2()
 
 void OG6Coordinate2::OnRender()
 {
-    /*int screenWidth = 800;
+    int screenWidth = 800;
     int screenHeight = 600;
     m_Model = glm::rotate(glm::mat4(1.0f), glm::radians(m_Degree), m_ModelVec);
     m_View = glm::translate(glm::mat4(1.0f), m_ViewVec);
     m_Proj = glm::perspective(glm::radians(m_PerspectDegree), (float)screenWidth / (float)screenHeight, 0.1f, 100.0f);
 
     m_Shader->SetUniformMat4f("u_MVP", m_Proj * m_View * m_Model);
-    m_Renderer->Draw(*m_VAO, *m_IBO, *m_Shader);*/
-    std::cout << m_VBO->GetCount() << std::endl;
+    m_Renderer->DrawArray(*m_VAO, *m_Shader, m_VBO->GetCount());
 }
 
 void OG6Coordinate2::OnImGuiRender()
 {
-    /*ImGui::SliderFloat("PerpectiveDegree", &m_PerspectDegree, 0.0f, 360.0f);
+    ImGui::SliderFloat("PerpectiveDegree", &m_PerspectDegree, 0.0f, 360.0f);
     ImGui::SliderFloat("Degree", &m_Degree, -180.0f, 180.0f);
     ImGui::SliderFloat3("Model", &m_ModelVec.x, 0.0f, 1.0f);
-    ImGui::SliderFloat3("view", &m_ViewVec.x, -3.0f, 3.0f);*/
+    ImGui::SliderFloat3("view", &m_ViewVec.x, -3.0f, 3.0f);
 }
 
 void OG6Coordinate2::OnUpdate(float deltaTime)
