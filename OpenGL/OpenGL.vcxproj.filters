@@ -425,6 +425,7 @@
     <None Include="src\vendor\glm\gtx\wrap.inl">
       <Filter>头文件</Filter>
     </None>
+    <None Include="res\shaders\OG6Coordinate.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -1410,5 +1411,19 @@
     <ClInclude Include="src\effectTasks\TestTexture2D.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\textures\awesomeface.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\textures\ChernoLogo.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\textures\HazelLogo.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\textures\wall.jpg">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>
