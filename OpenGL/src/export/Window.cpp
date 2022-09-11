@@ -37,8 +37,6 @@ Window::Window(int width, int height, const char* name)
     unsigned char* glVersion;
     GLCall(glVersion = (unsigned char*)glGetString(GL_VERSION));
     std::cout << "Status: Using GL " << glVersion << std::endl;
-    GLCall(glEnable(GL_BLEND));
-    GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 
     ImGui::CreateContext();
     ImGui_ImplGlfw_InitForOpenGL(m_Window, true);

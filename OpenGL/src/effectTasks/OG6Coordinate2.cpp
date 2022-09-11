@@ -8,7 +8,7 @@ OG6Coordinate2::OG6Coordinate2()
     :m_ModelVec(glm::vec3(1.0f, 0.0f, 0.0f)), m_ViewVec(glm::vec3(0.0f, 0.0f, -3.0f)), m_Degree(-45.0f), m_PerspectDegree(45.0f)
 {
     //开启深度测试
-    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_DEPTH_TEST);
 
 	m_VAO = std::make_unique<VertexArray>();
 	m_VAO->Bind();

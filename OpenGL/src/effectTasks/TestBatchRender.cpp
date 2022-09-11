@@ -60,6 +60,7 @@ TestBatchRender::TestBatchRender()
 
 TestBatchRender::~TestBatchRender()
 {
+    GLCall(glDisable(GL_BLEND));
 }
 
 void TestBatchRender::OnUpdate(float deltaTime)

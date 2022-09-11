@@ -47,6 +47,7 @@ TestTexture2D::TestTexture2D()
 
 TestTexture2D::~TestTexture2D()
 {
+    GLCall(glDisable(GL_BLEND));
 }
 
 void TestTexture2D::OnUpdate(float deltaTime)
