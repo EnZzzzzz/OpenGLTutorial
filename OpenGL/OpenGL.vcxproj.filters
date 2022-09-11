@@ -448,18 +448,6 @@
     <ClCompile Include="src\glElement\Texture.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="src\tasks\Task.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tasks\TestBatchRender.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tasks\TestClearColor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tasks\TestTexture2D.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\vendor\glm\detail\glm.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -490,6 +478,21 @@
     <ClCompile Include="src\export\Window.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\effectTasks\OG6Coordinate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\Task.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\TestBatchRender.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\TestClearColor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\TestTexture2D.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\glElement\Renderer.h">
@@ -511,18 +514,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\glElement\Shader.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tasks\TestTexture2D.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tasks\Task.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tasks\TestBatchRender.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tasks\TestClearColor.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\vendor\glm\detail\_features.hpp">
@@ -1402,6 +1393,21 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\export\Window.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\OG6Coordinate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\Task.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\TestBatchRender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\TestClearColor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\TestTexture2D.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,6 @@
-#include "tasks/TestClearColor.h"
-#include "tasks/TestTexture2D.h"
-#include "tasks/TestBatchRender.h"
+#include "effectTasks/TestClearColor.h"
+#include "effectTasks/TestTexture2D.h"
+#include "effectTasks/TestBatchRender.h"
 #include "export/Window.h"
 
 int main(void)
