@@ -44,8 +44,6 @@ Window::Window(int width, int height, const char* name)
 
     const char* glsl_version = "#version 330";
     ImGui_ImplOpenGL3_Init(glsl_version);
-    GLCall(glEnable(GL_BLEND));
-    GLCall(glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA));
 }
 
 Window::~Window()
