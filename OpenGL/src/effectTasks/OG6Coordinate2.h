@@ -28,6 +28,7 @@ private:
 	std::unique_ptr<VertexBuffer> m_VBO;
 	std::unique_ptr<Shader> m_Shader;
 	std::unique_ptr<Texture> m_Texture;
+	std::unique_ptr<Texture> m_Texture2;
 	std::unique_ptr<Renderer> m_Renderer;
 
 	float m_Degree, m_PerspectDegree;

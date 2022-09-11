@@ -7,6 +7,9 @@
 OG6Coordinate2::OG6Coordinate2()
     :m_ModelVec(glm::vec3(1.0f, 0.0f, 0.0f)), m_ViewVec(glm::vec3(0.0f, 0.0f, -3.0f)), m_Degree(-45.0f), m_PerspectDegree(45.0f)
 {
+    //开启深度测试
+    glDisable(GL_DEPTH_TEST);
+
 	m_VAO = std::make_unique<VertexArray>();
 	m_VAO->Bind();
 
@@ -61,22 +64,28 @@ OG6Coordinate2::OG6Coordinate2()
     m_VBO->layout.Push<float>(2);
     m_VAO->AddBuffer(*m_VBO);
 
-    m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
-    unsigned int slot = 0;
-    m_Texture->Bind(slot);
-
     m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate2.shader");
     m_Shader->Bind();
-    m_Shader->SetUniform1i("ourTexture", (int)slot);
+    m_Shader->SetUniform1i("ourTexture", 0);
+    m_Shader->SetUniform1i("ourTexture2", 1);
+
+    m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
+    m_Texture2 = std::make_unique<Texture>("./res/textures/awesomeface.png");
 }
 
 OG6Coordinate2::~OG6Coordinate2()
 {
-
+    glDisable(GL_DEPTH_TEST);
 }
 
 void OG6Coordinate2::OnRender()
 {
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // also clear the depth buffer now!
+    // 纹理绑定得在循环中才行..
+    m_Texture->Bind(0);
+    m_Texture2->Bind(1);
+
     int screenWidth = 800;
     int screenHeight = 600;
     m_Model = glm::rotate(glm::mat4(1.0f), glm::radians(m_Degree), m_ModelVec);
