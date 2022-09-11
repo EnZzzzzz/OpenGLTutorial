@@ -66,7 +66,7 @@ void Window::processInput(GLFWwindow* window)
         glfwSetWindowShouldClose(m_Window, true);
 }
 
-void Window::show(task::Task* task)
+void Window::show(Task* task)
 {
     while (!glfwWindowShouldClose(m_Window))
     {

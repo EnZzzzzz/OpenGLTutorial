@@ -11,7 +11,7 @@ public:
 	Window(int width, int height, const char* name);
 	~Window();
 
-	void show(task::Task* task);
+	void show(Task* task);
 
 private:
 	GLFWwindow* m_Window;

@@ -4,38 +4,36 @@
 #include <functional>
 #include <iostream>
 
-namespace task
+
+class Task
 {
-	class Task
+public:
+	Task() {}
+	virtual ~Task() {}
+
+	virtual void OnUpdate(float deltaTime) {}
+	virtual void OnRender() {}
+	virtual void OnImGuiRender() {}
+};
+
+class TaskMenu: public Task
+{
+private:
+	Task* m_CurrentTest;
+	std::vector<std::pair<std::string, std::function<Task*()>>> m_Tests;
+	void showMenu();
+
+public:
+	TaskMenu();
+
+	void OnImGuiRender() override;
+	void OnRender() override;
+
+	template<typename T>
+	void RegisterTest(const std::string& name)
 	{
-	public:
-		Task() {}
-		virtual ~Task() {}
+		std::cout << "Register test: " << name << std::endl;
 
-		virtual void OnUpdate(float deltaTime) {}
-		virtual void OnRender() {}
-		virtual void OnImGuiRender() {}
-	};
-
-	class TaskMenu: public Task
-	{
-	private:
-		Task* m_CurrentTest;
-		std::vector<std::pair<std::string, std::function<Task*()>>> m_Tests;
-		void showMenu();
-
-	public:
-		TaskMenu();
-
-		void OnImGuiRender() override;
-		void OnRender() override;
-
-		template<typename T>
-		void RegisterTest(const std::string& name)
-		{
-			std::cout << "Register test: " << name << std::endl;
-
-			m_Tests.push_back(std::make_pair(name, []() { return new T(); }));
-		}
-	};
-}
+		m_Tests.push_back(std::make_pair(name, []() { return new T(); }));
+	}
+};
