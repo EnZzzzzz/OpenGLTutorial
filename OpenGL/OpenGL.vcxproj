@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\effectTasks\OG6Coordinate2.cpp" />
     <ClCompile Include="src\effectTasks\Task.cpp" />
     <ClCompile Include="src\effectTasks\TestBatchRender.cpp" />
     <ClCompile Include="src\effectTasks\TestClearColor.cpp" />
@@ -175,6 +176,7 @@
     <None Include="res\shaders\Basic.shader" />
     <None Include="res\shaders\Batch.shader" />
     <None Include="res\shaders\OG6Coordinate.shader" />
+    <None Include="res\shaders\OG6Coordinate2.shader" />
     <None Include="src\vendor\glm\detail\func_common.inl" />
     <None Include="src\vendor\glm\detail\func_common_simd.inl" />
     <None Include="src\vendor\glm\detail\func_exponential.inl" />
@@ -313,6 +315,7 @@
     <None Include="src\vendor\glm\gtx\wrap.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\effectTasks\OG6Coordinate2.h" />
     <ClInclude Include="src\effectTasks\Task.h" />
     <ClInclude Include="src\effectTasks\TestBatchRender.h" />
     <ClInclude Include="src\effectTasks\TestClearColor.h" />

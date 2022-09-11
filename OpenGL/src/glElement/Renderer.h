@@ -9,7 +9,7 @@
 
 #define ASSERT(x) if (!(x)) __debugbreak()
 
-/* 反斜杠后面不能有空格 */
+
 #define GLCall(x) do { \
     GLClearError();\
     x;\
@@ -25,4 +25,5 @@ class Renderer
 public:
     void Clear() const;
     void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
+    void DrawArray(const VertexArray& va, const Shader& shader) const;
 };

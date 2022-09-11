@@ -2,7 +2,7 @@
 
 void GLClearError()
 {
-    /* Ñ­»·»ñÈ¡´íÎó(¼´Çå³ý) */
+    /* Ñ­ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½) */
     while (glGetError() != GL_NO_ERROR);
 }
 
@@ -23,9 +23,14 @@ void Renderer::Clear() const
 
 void Renderer::Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const
 {
-    shader.Bind(); /* ÎªGPU°ó¶¨×ÅÉ«Æ÷³ÌÐò */
-    va.Bind(); /* °üº¬Êµ¼Ê´¦ÀíÊý¾ÝµÄÊý×é */
+    shader.Bind();
+    va.Bind();
     ib.Bind();
 
     GLCall(glDrawElements(GL_TRIANGLES, ib.GetCount(), GL_UNSIGNED_INT, nullptr));
+}
+
+void Renderer::DrawArray(const VertexArray& va, const Shader& shader) const
+{
+    glDrawArrays(GL_TRIANGLES, 0, 36);
 }
