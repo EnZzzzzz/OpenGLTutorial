@@ -427,6 +427,7 @@
     </None>
     <None Include="res\shaders\OG6Coordinate.shader" />
     <None Include="res\shaders\OG6Coordinate2.shader" />
+    <None Include="res\shaders\Effect1Fushe.shader" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Application.cpp">
@@ -499,6 +500,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\effectTasks\OG7Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\OG8Lighting.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\OG9FrameBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\Effect1Fushe.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -1422,6 +1432,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\effectTasks\OG7Camera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\OG8Lighting.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\OG9FrameBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\Effect1Fushe.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
