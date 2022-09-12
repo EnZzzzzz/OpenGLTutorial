@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\effectTasks\OG6Coordinate2.cpp" />
+    <ClCompile Include="src\effectTasks\OG7Camera.cpp" />
     <ClCompile Include="src\effectTasks\Task.cpp" />
     <ClCompile Include="src\effectTasks\TestBatchRender.cpp" />
     <ClCompile Include="src\effectTasks\TestClearColor.cpp" />
@@ -316,6 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\effectTasks\OG6Coordinate2.h" />
+    <ClInclude Include="src\effectTasks\OG7Camera.h" />
     <ClInclude Include="src\effectTasks\Task.h" />
     <ClInclude Include="src\effectTasks\TestBatchRender.h" />
     <ClInclude Include="src\effectTasks\TestClearColor.h" />

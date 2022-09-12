@@ -3,6 +3,7 @@
 #include "effectTasks/TestBatchRender.h"
 #include "effectTasks/OG6Coordinate.h"
 #include "effectTasks/OG6Coordinate2.h"
+#include "effectTasks/OG7Camera.h"
 #include "export/Window.h"
 
 int main(void)
@@ -20,6 +21,7 @@ int main(void)
     testMenu.RegisterTest<TestBatchRender>("Batch Render");
     testMenu.RegisterTest<OG6Coordinate>("OG6Coordinate");
     testMenu.RegisterTest<OG6Coordinate2>("OG6Coordinate2");
+    testMenu.RegisterTest<OG7Camera>("OG7Camera");
 
     std::cout << "start showing menu" << std::endl;
     window.show(currentTest);

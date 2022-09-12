@@ -498,6 +498,9 @@
     <ClCompile Include="src\effectTasks\OG6Coordinate2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\effectTasks\OG7Camera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\glElement\Renderer.h">
@@ -1416,6 +1419,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\effectTasks\OG6Coordinate2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\OG7Camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
