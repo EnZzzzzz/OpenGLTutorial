@@ -60,8 +60,8 @@ OG6Coordinate2::OG6Coordinate2()
     m_VBO = std::make_unique<VertexBuffer>(vertices, sizeof(vertices));
     m_VBO->Bind();
     
-    m_VBO->layout.Push<float>(3);
-    m_VBO->layout.Push<float>(2);
+    m_VBO->layout.push<float>(3);
+    m_VBO->layout.push<float>(2);
     m_VAO->AddBuffer(*m_VBO);
 
     m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate2.shader");

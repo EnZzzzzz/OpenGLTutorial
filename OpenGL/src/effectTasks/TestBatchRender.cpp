@@ -37,10 +37,10 @@ TestBatchRender::TestBatchRender()
 
     m_VertexBuffer = std::make_unique<VertexBuffer>(positions, 11 * 8 * sizeof(float));
 
-    m_VertexBuffer->layout.Push<float>(4);
-    m_VertexBuffer->layout.Push<float>(4);
-    m_VertexBuffer->layout.Push<float>(2);
-    m_VertexBuffer->layout.Push<float>(1);
+    m_VertexBuffer->layout.push<float>(4);
+    m_VertexBuffer->layout.push<float>(4);
+    m_VertexBuffer->layout.push<float>(2);
+    m_VertexBuffer->layout.push<float>(1);
     m_VAO->AddBuffer(*m_VertexBuffer);
 
     m_IndexBuffer = std::make_unique<IndexBuffer>(indices, 12);

@@ -511,6 +511,12 @@
     <ClCompile Include="src\effectTasks\Effect1Fushe.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="src\effectTasks\OG10Light.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\effectTasks\OG6Coordinate3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\glElement\Renderer.h">
@@ -1441,6 +1447,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="src\effectTasks\Effect1Fushe.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\OG10Light.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\effectTasks\OG6Coordinate3.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
