@@ -5,14 +5,15 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
-#include "Task.h"
 #include "VertexArray.h"
+
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "Renderer.h"
+#include "Task.h"
+#include <GLFW/glfw3.h>
 
 class OG7Camera2 : public Task
 {
@@ -24,6 +25,7 @@ public:
 	void OnUpdate(float deltaTime) override;
 
 private:
+    void ProcessInput(GLFWwindow *window) override;
 	std::unique_ptr<VertexArray> m_VAO;
 	std::unique_ptr<VertexBuffer> m_VBO;
 	std::unique_ptr<Shader> m_Shader;
@@ -34,6 +36,8 @@ private:
 	float m_Degree, m_PerspectDegree;
 	glm::vec3 m_ViewVec;
 	glm::vec3 m_ModelVec;
+
+    glm::vec3 m_cameraPos, m_cameraFront, m_cameraUp;
 
 	glm::mat4 m_Model;
 	glm::mat4 m_Proj;

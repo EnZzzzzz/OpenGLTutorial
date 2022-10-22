@@ -6,13 +6,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Task.h"
 #include "VertexArray.h"
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "Renderer.h"
+#include "Task.h"
 
 class Effect1Fushe : public Task
 {

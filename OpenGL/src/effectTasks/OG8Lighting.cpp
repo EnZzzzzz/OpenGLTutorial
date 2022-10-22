@@ -1,8 +1,7 @@
 #include "imgui/imgui.h"
 
-#include "OG8Lighting.h"
 #include "VertexBufferLayout.h"
-#include "GLFW/glfw3.h"
+#include "OG8Lighting.h"
 
 
 OG8Lighting::OG8Lighting()

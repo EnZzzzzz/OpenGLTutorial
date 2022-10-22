@@ -3,6 +3,7 @@
 #include <vector>
 #include <functional>
 #include <iostream>
+#include <GLFW/glfw3.h>
 
 
 class Task
@@ -14,6 +15,11 @@ public:
 	virtual void OnUpdate(float deltaTime) {}
 	virtual void OnRender() {}
 	virtual void OnImGuiRender() {}
+
+    virtual void ProcessInput(GLFWwindow *window){
+        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+            glfwSetWindowShouldClose(window, true);
+    }
 };
 
 class TaskMenu: public Task

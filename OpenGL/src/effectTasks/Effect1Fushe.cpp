@@ -1,7 +1,7 @@
 #include "imgui/imgui.h"
 
-#include "Effect1Fushe.h"
 #include "VertexBufferLayout.h"
+#include "Effect1Fushe.h"
 
 
 Effect1Fushe::Effect1Fushe()

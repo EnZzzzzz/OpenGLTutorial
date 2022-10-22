@@ -2,6 +2,7 @@
 #include "effectTasks/OG6Coordinate.h"
 #include "effectTasks/OG6Coordinate2.h"
 #include "effectTasks/OG7Camera.h"
+#include "effectTasks/OG7Camera2.h"
 #include "export/Window.h"
 
 int main(void)
@@ -17,6 +18,7 @@ int main(void)
     testMenu.RegisterTest<OG6Coordinate>("OG6Coordinate");
     testMenu.RegisterTest<OG6Coordinate2>("OG6Coordinate2");
     testMenu.RegisterTest<OG7Camera>("OG7Camera");
+    testMenu.RegisterTest<OG7Camera2>("OG7Camera2");
 
     std::cout << "start showing menu" << std::endl;
     window.show(currentTest);

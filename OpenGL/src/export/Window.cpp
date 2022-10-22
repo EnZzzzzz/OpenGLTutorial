@@ -66,7 +66,6 @@ void Window::show(Task* task)
 {
     while (!glfwWindowShouldClose(m_Window))
     {
-        processInput(m_Window);
         setFramebufferSizeCallback(m_Window, m_Width, m_Height);
         GLCall(glClearColor(0.0f, 0.0f, 0.0f, 1.0f));
         m_Renderer.Clear();
@@ -77,6 +76,7 @@ void Window::show(Task* task)
 
         if (task)
         {
+            task->ProcessInput(m_Window);
             task->OnUpdate(0.0f);
             task->OnRender();
             ImGui::Begin("Task");

@@ -1,7 +1,7 @@
-#include "TestClearColor.h"
-
 #include "Renderer.h"
+
 #include "imgui/imgui.h"
+#include "TestClearColor.h"
 
 
 TestClearColor::TestClearColor()

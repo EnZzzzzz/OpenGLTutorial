@@ -1,8 +1,7 @@
 #include "imgui/imgui.h"
 
-#include "OG7Camera.h"
 #include "VertexBufferLayout.h"
-#include "GLFW/glfw3.h"
+#include "OG7Camera.h"
 
 
 OG7Camera::OG7Camera()

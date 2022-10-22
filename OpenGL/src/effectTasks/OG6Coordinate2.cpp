@@ -1,7 +1,7 @@
 #include "imgui/imgui.h"
 
-#include "OG6Coordinate2.h"
 #include "VertexBufferLayout.h"
+#include "OG6Coordinate2.h"
 
 
 OG6Coordinate2::OG6Coordinate2()

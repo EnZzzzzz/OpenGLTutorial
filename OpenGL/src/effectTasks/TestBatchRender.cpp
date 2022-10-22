@@ -1,10 +1,10 @@
-#include "TestBatchRender.h"
-
 #include "Renderer.h"
-#include "imgui/imgui.h"
 
+#include "imgui/imgui.h"
 #include "glm/glm.hpp"
+
 #include "glm/gtc/matrix_transform.hpp"
+#include "TestBatchRender.h"
 
 
 TestBatchRender::TestBatchRender()

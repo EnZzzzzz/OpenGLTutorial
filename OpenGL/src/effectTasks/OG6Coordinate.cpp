@@ -1,7 +1,7 @@
 #include "imgui/imgui.h"
 
-#include "OG6Coordinate.h"
 #include "VertexBufferLayout.h"
+#include "OG6Coordinate.h"
 
 
 OG6Coordinate::OG6Coordinate()
@@ -39,8 +39,8 @@ OG6Coordinate::OG6Coordinate()
     m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate.shader");
     m_Shader->bind();
     m_Shader->setUniform1i("ourTexture", (int)slot);
-    
-    
+
+
 }
 
 OG6Coordinate::~OG6Coordinate()

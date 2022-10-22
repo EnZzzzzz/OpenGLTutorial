@@ -10,13 +10,15 @@ include_directories(OpenGL
         OpenGL/src/effectTasks
         OpenGL/src/export
         OpenGL/src/glElement
-        OpenGL/src/vendor)
+        OpenGL/src/vendor
+        OpenGL/src)
 
 file(GLOB_RECURSE src OpenGL/src/*.cpp)
 
 set(forAdd
         OpenGL/src/effectTasks/OG6Coordinate2.cpp
         OpenGL/src/effectTasks/OG7Camera2.cpp
+        OpenGL/src/export/Window.cpp
         )
 
 add_executable(OpenGL OpenGL/src/Application.cpp ${forAdd} ${src})

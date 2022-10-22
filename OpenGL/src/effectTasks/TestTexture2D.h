@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Task.h"
-
 #include "VertexBuffer.h"
+
 #include "VertexBufferLayout.h"
 #include "Texture.h"
+#include "Task.h"
 
 #include <memory>
 
