@@ -41,18 +41,18 @@ TestBatchRender::TestBatchRender()
     m_VertexBuffer->layout.push<float>(4);
     m_VertexBuffer->layout.push<float>(2);
     m_VertexBuffer->layout.push<float>(1);
-    m_VAO->AddBuffer(*m_VertexBuffer);
+    m_VAO->addBuffer(*m_VertexBuffer);
 
     m_IndexBuffer = std::make_unique<IndexBuffer>(indices, 12);
 
     m_Shader = std::make_unique<Shader>("res/shaders/Batch.shader");
-    m_Shader->Bind();
+    m_Shader->bind();
 
     m_Texture[0] = std::make_unique<Texture>("res/textures/ChernoLogo.png");
     m_Texture[1] = std::make_unique<Texture>("res/textures/HazelLogo.png");
     for (size_t i = 0; i < 2; i++)
     {
-        m_Texture[i]->Bind(i);
+        m_Texture[i]->bind(i);
     }
     int samplers[2] = { 0, 1 };
     m_Shader->SetUniform1iv("u_Textures", 2, samplers);
@@ -75,7 +75,7 @@ void TestBatchRender::OnRender()
     Renderer renderer; // ÿ֡���renderer��Ҫ��һ����
     glm::mat4 mvp = m_Proj * m_View;
 
-    m_Shader->Bind();
+    m_Shader->bind();
     m_Shader->SetUniformMat4f("u_MVP", mvp);
 
     renderer.Draw(*m_VAO, *m_IndexBuffer, *m_Shader);

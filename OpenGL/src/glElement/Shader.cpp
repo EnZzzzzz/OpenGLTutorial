@@ -19,7 +19,7 @@ Shader::~Shader()
     GLCall(glDeleteProgram(m_RendererID));
 }
 
-void Shader::Bind() const
+void Shader::bind() const
 {
     GLCall(glUseProgram(m_RendererID));
 }
@@ -29,7 +29,7 @@ void Shader::Unbind() const
     GLCall(glUseProgram(0));
 }
 
-void Shader::SetUniform1i(const std::string& name, int value)
+void Shader::setUniform1i(const std::string& name, int value)
 {
     GLCall(glUniform1i(GetUniformLocation(name), value));
 }

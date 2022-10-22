@@ -12,7 +12,7 @@ public:
 	VertexBuffer(const void* data, unsigned int size);
 	~VertexBuffer();
 
-	void Bind() const;
+	void bind() const;
 	void Unbind() const;
 	int GetCount();
 	VertexBufferLayout layout;

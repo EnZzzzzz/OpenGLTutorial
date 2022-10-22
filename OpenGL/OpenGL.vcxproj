@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -152,8 +152,8 @@
     <ClCompile Include="src\effectTasks\Effect1Fushe.cpp" />
     <ClCompile Include="src\effectTasks\OG10Light.cpp" />
     <ClCompile Include="src\effectTasks\OG6Coordinate2.cpp" />
-    <ClCompile Include="src\effectTasks\OG6Coordinate3.cpp" />
     <ClCompile Include="src\effectTasks\OG7Camera.cpp" />
+    <ClCompile Include="src\effectTasks\OG7Camera2.cpp" />
     <ClCompile Include="src\effectTasks\OG8Lighting.cpp" />
     <ClCompile Include="src\effectTasks\OG9FrameBuffer.cpp" />
     <ClCompile Include="src\effectTasks\Task.cpp" />
@@ -325,8 +325,8 @@
     <ClInclude Include="src\effectTasks\Effect1Fushe.h" />
     <ClInclude Include="src\effectTasks\OG10Light.h" />
     <ClInclude Include="src\effectTasks\OG6Coordinate2.h" />
-    <ClInclude Include="src\effectTasks\OG6Coordinate3.h" />
     <ClInclude Include="src\effectTasks\OG7Camera.h" />
+    <ClInclude Include="src\effectTasks\OG7Camera2.h" />
     <ClInclude Include="src\effectTasks\OG8Lighting.h" />
     <ClInclude Include="src\effectTasks\OG9FrameBuffer.h" />
     <ClInclude Include="src\effectTasks\Task.h" />

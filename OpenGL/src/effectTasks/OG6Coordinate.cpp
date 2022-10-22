@@ -8,7 +8,7 @@ OG6Coordinate::OG6Coordinate()
     :m_ModelVec(glm::vec3(1.0f, 0.0f, 0.0f)), m_ViewVec(glm::vec3(0.0f, 0.0f, -3.0f)), m_Degree(-45.0f), m_PerspectDegree(45.0f)
 {
 	m_VAO = std::make_unique<VertexArray>();
-	m_VAO->Bind();
+	m_VAO->bind();
 
     float vertices[] = {
         //     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
@@ -22,7 +22,7 @@ OG6Coordinate::OG6Coordinate()
         1, 2, 3
     };
     m_VBO = std::make_unique<VertexBuffer>(vertices, sizeof(vertices));
-    m_VBO->Bind();
+    m_VBO->bind();
     m_IBO = std::make_unique<IndexBuffer>(indices, sizeof(indices));
     m_IBO->Bind();
 
@@ -30,15 +30,15 @@ OG6Coordinate::OG6Coordinate()
     m_VBO->layout.push<float>(3);
     m_VBO->layout.push<float>(3);
     m_VBO->layout.push<float>(2);
-    m_VAO->AddBuffer(*m_VBO);
+    m_VAO->addBuffer(*m_VBO);
 
     m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
     unsigned int slot = 0;
-    m_Texture->Bind(slot);
+    m_Texture->bind(slot);
 
     m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate.shader");
-    m_Shader->Bind();
-    m_Shader->SetUniform1i("ourTexture", (int)slot);
+    m_Shader->bind();
+    m_Shader->setUniform1i("ourTexture", (int)slot);
     
     
 }

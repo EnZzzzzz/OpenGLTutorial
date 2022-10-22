@@ -10,7 +10,7 @@ Effect1Fushe::Effect1Fushe()
 {
     glEnable(GL_DEPTH_TEST);
     m_VAO = std::make_unique<VertexArray>();
-    m_VAO->Bind();
+    m_VAO->bind();
 
     float vertices[] = {
         //     ---- 位置 ----       ---- 颜色 ----     - 纹理坐标 -
@@ -29,7 +29,7 @@ Effect1Fushe::Effect1Fushe()
         3, 0, 4
     };
     m_VBO = std::make_unique<VertexBuffer>(vertices, sizeof(vertices));
-    m_VBO->Bind();
+    m_VBO->bind();
     m_IBO = std::make_unique<IndexBuffer>(indices, sizeof(indices));
     m_IBO->Bind();
 
@@ -37,15 +37,15 @@ Effect1Fushe::Effect1Fushe()
     m_VBO->layout.push<float>(3);
     m_VBO->layout.push<float>(3);
     m_VBO->layout.push<float>(2);
-    m_VAO->AddBuffer(*m_VBO);
+    m_VAO->addBuffer(*m_VBO);
 
     m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
     unsigned int slot = 0;
-    m_Texture->Bind(slot);
+    m_Texture->bind(slot);
 
     m_Shader = std::make_unique<Shader>("./res/shaders/Effect1Fushe.shader");
-    m_Shader->Bind();
-    m_Shader->SetUniform1i("ourTexture", (int)slot);
+    m_Shader->bind();
+    m_Shader->setUniform1i("ourTexture", (int)slot);
 
 
 }

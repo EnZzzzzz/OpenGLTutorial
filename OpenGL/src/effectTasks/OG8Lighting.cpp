@@ -12,7 +12,7 @@ OG8Lighting::OG8Lighting()
     glEnable(GL_DEPTH_TEST);
 
 	m_VAO = std::make_unique<VertexArray>();
-	m_VAO->Bind();
+	m_VAO->bind();
 
     float vertices[] = {
     -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
@@ -59,16 +59,16 @@ OG8Lighting::OG8Lighting()
     };
 
     m_VBO = std::make_unique<VertexBuffer>(vertices, sizeof(vertices));
-    m_VBO->Bind();
+    m_VBO->bind();
     
     m_VBO->layout.push<float>(3);
     m_VBO->layout.push<float>(2);
-    m_VAO->AddBuffer(*m_VBO);
+    m_VAO->addBuffer(*m_VBO);
 
     m_Shader = std::make_unique<Shader>("./res/shaders/OG6Coordinate2.shader");
-    m_Shader->Bind();
-    m_Shader->SetUniform1i("ourTexture", 0);
-    m_Shader->SetUniform1i("ourTexture2", 1);
+    m_Shader->bind();
+    m_Shader->setUniform1i("ourTexture", 0);
+    m_Shader->setUniform1i("ourTexture2", 1);
 
     m_Texture = std::make_unique<Texture>("./res/textures/wall.jpg");
     m_Texture2 = std::make_unique<Texture>("./res/textures/awesomeface.png");
@@ -108,8 +108,8 @@ void OG8Lighting::OnRender()
           glm::vec3(-1.3f,  1.0f, -1.5f)
     };
 
-    m_Texture->Bind(0);
-    m_Texture2->Bind(1);
+    m_Texture->bind(0);
+    m_Texture2->bind(1);
 
     int screenWidth = 800;
     int screenHeight = 600;
