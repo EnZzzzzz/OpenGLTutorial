@@ -1,7 +1,6 @@
 #pragma once
 #include "Renderer.h"
 #include "effectTasks/Task.h"
-#include "GLFW/glfw3.h"
 
 
 class Window

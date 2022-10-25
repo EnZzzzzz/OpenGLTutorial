@@ -6,14 +6,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "VertexArray.h"
-
 #include "VertexBuffer.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Texture.h"
 #include "Renderer.h"
 #include "Task.h"
-#include <GLFW/glfw3.h>
 
 class OG7Camera2 : public Task
 {

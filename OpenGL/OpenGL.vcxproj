@@ -161,6 +161,7 @@
     <ClCompile Include="src\effectTasks\TestClearColor.cpp" />
     <ClCompile Include="src\effectTasks\TestTexture2D.cpp" />
     <ClCompile Include="src\export\Window.cpp" />
+    <ClCompile Include="src\glElement\glCheck.cpp" />
     <ClCompile Include="src\glElement\IndexBuffer.cpp" />
     <ClCompile Include="src\glElement\Renderer.cpp" />
     <ClCompile Include="src\glElement\Shader.cpp" />
@@ -334,6 +335,7 @@
     <ClInclude Include="src\effectTasks\TestClearColor.h" />
     <ClInclude Include="src\effectTasks\TestTexture2D.h" />
     <ClInclude Include="src\export\Window.h" />
+    <ClInclude Include="src\glElement\glCheck.h" />
     <ClInclude Include="src\glElement\IndexBuffer.h" />
     <ClInclude Include="src\glElement\Renderer.h" />
     <ClInclude Include="src\glElement\Shader.h" />

@@ -1,10 +1,10 @@
+#include "glCheck.h"
 #include "Shader.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
 
-#include "Renderer.h"
 
 Shader::Shader(const std::string& filepath)
 	:m_FilePath(filepath), m_RendererID(0)
@@ -47,7 +47,7 @@ void Shader::SetUniform1iv(const std::string& name, int count, int* value)
 void Shader::SetUniform4f(const std::string& name, float v0, float v1, float v2, float v3)
 {
     
-    GLCall(glUniform4f(GetUniformLocation(name), v0, v1, v2, v3)); /* ���ö�Ӧ��ͳһ���� */
+    GLCall(glUniform4f(GetUniformLocation(name), v0, v1, v2, v3));
 }
 
 void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix)
@@ -57,7 +57,7 @@ void Shader::SetUniformMat4f(const std::string& name, const glm::mat4& matrix)
 
 ShaderProgramSource Shader::ParseShader(const std::string& filepath)
 {
-    std::ifstream stream(filepath); /* ����û�ж��ļ��Ƿ��������� is_open */
+    std::ifstream stream(filepath); 
     enum class ShaderType {
         NONE = -1, VERTEX = 0, FRAGMENT = 1
     };
@@ -66,11 +66,11 @@ ShaderProgramSource Shader::ParseShader(const std::string& filepath)
     std::stringstream ss[2];
     ShaderType type = ShaderType::NONE;
     while (getline(stream, line)) {
-        if (line.find("#shader") != std::string::npos) { /* �ҵ�#shader��� */
-            if (line.find("vertex") != std::string::npos) { /* ������ɫ����� */
+        if (line.find("#shader") != std::string::npos) {
+            if (line.find("vertex") != std::string::npos) {
                 type = ShaderType::VERTEX;
             }
-            else if (line.find("fragment") != std::string::npos) { /* Ƭ����ɫ����� */
+            else if (line.find("fragment") != std::string::npos) {
                 type = ShaderType::FRAGMENT;
             }
         }
@@ -84,23 +84,21 @@ ShaderProgramSource Shader::ParseShader(const std::string& filepath)
 unsigned int Shader::CompileShader(unsigned int type, const std::string& source)
 {
     unsigned int id;
-    /* ���������� */
-    GLCall(id = glCreateShader(type)); /* ������Ӧ���͵���ɫ�� */
+    GLCall(id = glCreateShader(type)); 
     const char* src = source.c_str();
-    GLCall(glShaderSource(id, 1, &src, nullptr)); /* ������ɫ��Դ�� */
-    GLCall(glCompileShader(id)); /* ������ɫ�� */
+    GLCall(glShaderSource(id, 1, &src, nullptr)); 
+    GLCall(glCompileShader(id)); 
 
-    /* ��������� */
     int result;
-    GLCall(glGetShaderiv(id, GL_COMPILE_STATUS, &result)); // ��ȡ��ǰ��ɫ������״̬
+    GLCall(glGetShaderiv(id, GL_COMPILE_STATUS, &result)); 
     if (result == GL_FALSE) {
         int length;
-        GLCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length)); // ��ȡ��־����
-        char* msg = (char*)_malloca(length * sizeof(char)); /* Cherno������õ�alloca, ����IDE��ʾ, ������ĳ���_malloca���� */
-        GLCall(glGetShaderInfoLog(id, length, &length, msg)); // ��ȡ��־��Ϣ
+        GLCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length)); 
+        char* msg = (char*)_malloca(length * sizeof(char)); 
+        GLCall(glGetShaderInfoLog(id, length, &length, msg)); 
         std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl;
         std::cout << msg << std::endl;
-        GLCall(glDeleteShader(id)); // ɾ����ɫ��
+        GLCall(glDeleteShader(id)); 
         return 0;
     }
 

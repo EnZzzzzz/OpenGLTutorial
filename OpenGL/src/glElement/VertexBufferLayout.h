@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include <GL/glew.h>
+#include "glCheck.h"
 
 struct VertexBufferElement
 {
